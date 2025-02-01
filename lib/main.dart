@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/pages/CubeSlider.dart';
+import 'package:music_player/pages/home_page.dart';
+import 'package:music_player/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => ThemeProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -10,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CubeSlider(),
+      home: HomePage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
