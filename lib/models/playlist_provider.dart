@@ -19,4 +19,15 @@ class PlaylistProvider extends ChangeNotifier {
         albumArtImagePath: 'assets/images/image.png',
         audioPath: 'assets/audios/song.mp3'),
   ];
+
+  int? _currentSongIndex;
+  // Getters
+  List<Song> get playlist => _playlist;
+  int get currentSongIndex => _currentSongIndex!;
+
+  // setters
+  set currentSongIndex(int? newindex) {
+    _currentSongIndex = newindex;
+    notifyListeners();
+  }
 }
